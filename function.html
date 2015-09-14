@@ -1,0 +1,28 @@
+<html>
+	<head>方法</head>
+	<meta type="text/html" charset="gbk"�/>
+	<body>
+	
+			<script>
+		function getAge(){}
+		var xiaoming = {
+			name: 'xiaoming',
+			birth: 1994,
+			age: function(){
+				var y = new Date().getFullYear();
+				return y - this.birth;
+			},
+			getA: getAge  //分开写
+		};
+		//alert(xiaoming.name);
+		xiaoming.getA();
+//一个一层函数内部用了this那么this根据调用者和适欠裼衧trict有两种
+//指向	有调用者在s模式可以正常使用
+//	没有调用者在贩非s return 可能是NaN s模式 是Undifine
+//在两多层可用var that = this; 在通过that调用
+	//可以用函数本身的apply绑定
+	getA.apply(xiaoming,[ ]);
+		alert('over');
+			</script>
+	</body>
+</html>
