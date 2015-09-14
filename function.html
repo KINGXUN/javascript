@@ -4,7 +4,7 @@
 	<body>
 	
 			<script>
-		function getAge(){}
+		function getAge(){alert('get age function')}
 		var xiaoming = {
 			name: 'xiaoming',
 			birth: 1994,
@@ -15,14 +15,29 @@
 			getA: getAge  //分开写
 		};
 		//alert(xiaoming.name);
-		xiaoming.getA();
+		xiaoming.age();
 //一个一层函数内部用了this那么this根据调用者和适欠裼衧trict有两种
 //指向	有调用者在s模式可以正常使用
 //	没有调用者在贩非s return 可能是NaN s模式 是Undifine
 //在两多层可用var that = this; 在通过that调用
 	//可以用函数本身的apply绑定
-	getA.apply(xiaoming,[ ]);
+	getAge.apply(xiaoming,[ ]);
 		alert('over');
+		var a = 'Name';
+		var b = a;
+		a = 'changed';
+		alert(b);//值传递
+	//统计函数
+		var count = 0;
+		var oldParseInt = window.parseInt;
+		window.parseInt = function(){
+			count += 1;
+			return oldParseInt.apply(null,arguments);
+		};
+		parseInt('10');
+		parseInt('22');
+		alert(count);
+		//牛X！！！！
 			</script>
 	</body>
 </html>
